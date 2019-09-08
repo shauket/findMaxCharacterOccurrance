@@ -1,0 +1,27 @@
+ func findMaxRecurrance(string: String) -> String {
+    let arr = Array(string)
+    var dict = [Character : Int]()
+    for i in 0..<arr.count {
+      let next = i + 1
+      for j in next..<arr.count {
+        if arr[i] == arr[j] {
+          if dict[arr[i]] != nil {
+            let count = dict[arr[i]]
+            dict[arr[i]] = count! + 1
+          } else {
+            dict[arr[i]] = 2
+          }
+        }
+      }
+    }
+   
+    var count = 0 
+    var result: String = ""
+    for (key, value) in dict {
+      if value > count {
+        count = value
+        char = String(key)
+      }
+    }
+    return result
+  }
